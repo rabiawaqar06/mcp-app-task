@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "todo-mcp-server": {
+      "command": "/home/adeesha-waheed/Documents/mcp/venv/bin/python",
+      "args": ["mcp_server.py"],
+      "cwd": "/home/adeesha-waheed/Documents/mcp"
+    }
+  }
+}

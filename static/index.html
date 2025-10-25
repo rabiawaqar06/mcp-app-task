@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List App</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-tasks"></i> Todo List</h1>
+            <p>Stay organized and get things done</p>
+        </header>
+
+        <div class="todo-form">
+            <form id="todoForm" class="form">
+                <div class="input-group">
+                    <input type="text" id="todoTitle" placeholder="What needs to be done?" required>
+                    <textarea id="todoDescription" placeholder="Add a description (optional)"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Add Todo
+                </button>
+            </form>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">
+                <i class="fas fa-list"></i> All
+            </button>
+            <button class="filter-btn" data-filter="pending">
+                <i class="fas fa-clock"></i> Pending
+            </button>
+            <button class="filter-btn" data-filter="completed">
+                <i class="fas fa-check"></i> Completed
+            </button>
+        </div>
+
+        <div class="todo-stats">
+            <div class="stat">
+                <span class="stat-number" id="totalTodos">0</span>
+                <span class="stat-label">Total</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" id="pendingTodos">0</span>
+                <span class="stat-label">Pending</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" id="completedTodos">0</span>
+                <span class="stat-label">Completed</span>
+            </div>
+        </div>
+
+        <div class="todo-list" id="todoList">
+            <div class="loading" id="loading">
+                <i class="fas fa-spinner fa-spin"></i> Loading todos...
+            </div>
+        </div>
+
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <i class="fas fa-clipboard-list"></i>
+            <h3>No todos yet</h3>
+            <p>Add your first todo to get started!</p>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Todo</h3>
+                <button class="close-btn" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="editForm">
+                <div class="input-group">
+                    <input type="text" id="editTitle" placeholder="Todo title" required>
+                    <textarea id="editDescription" placeholder="Todo description"></textarea>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="editCompleted">
+                            <span class="checkmark"></span>
+                            Mark as completed
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelEdit">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal" id="deleteModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Delete Todo</h3>
+                <button class="close-btn" id="closeDeleteModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this todo? This action cannot be undone.</p>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" id="cancelDelete">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmDelete">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
+
