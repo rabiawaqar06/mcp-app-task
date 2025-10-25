@@ -27,6 +27,11 @@ A complete todo list application with a modern web interface, REST API built wit
 - **Complete tool set** for todo management via AI
 - **Natural language interface** for todo operations
 
+## VIDEO
+
+[![Watch the demo video](https://img.youtube.com/vi/1hfNJmX1BH8/0.jpg)](https://youtu.be/1hfNJmX1BH8)
+
+
 ## Setup
 
 ### Basic Setup
